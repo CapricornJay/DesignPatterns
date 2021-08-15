@@ -1,5 +1,8 @@
 package com.company;
 
+import com.company.iterator.Iterator;
+import com.company.iterator.Product;
+import com.company.iterator.ProductCollection;
 import com.company.memento.Document;
 import com.company.memento.DocumentHistory;
 import com.company.state.BicyclingMode;
@@ -35,5 +38,18 @@ public class Main {
         directionService.setTravellingMode(transitMode);
         System.out.println(directionService.getEta());
         System.out.println(directionService.getDirection());
+
+
+        //Iterator design pattern
+        ProductCollection productCollection = new ProductCollection();
+        productCollection.add(new Product(1, "test"));
+        productCollection.add(new Product(2, "test"));
+
+        Iterator iterator = productCollection.createIterator();
+        while (iterator.hasNext()){
+            System.out.println(iterator.current());
+            iterator.next();
+        }
+
     }
 }
