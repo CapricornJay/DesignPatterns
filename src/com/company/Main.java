@@ -9,6 +9,10 @@ import com.company.state.BicyclingMode;
 import com.company.state.DirectionService;
 import com.company.state.TransitMode;
 import com.company.state.TravellingMode;
+import com.company.strategy.AESEncryptionAlgorithm;
+import com.company.strategy.ChatClient;
+import com.company.strategy.DESEncryptionAlgorithm;
+import com.company.strategy.EncryptionAlgorithm;
 
 public class Main {
 
@@ -51,5 +55,12 @@ public class Main {
             iterator.next();
         }
 
+        //Strategy design pattern
+        EncryptionAlgorithm desEncryptionAlgorithm = new DESEncryptionAlgorithm();
+        ChatClient chatClient = new ChatClient();
+        chatClient.send(desEncryptionAlgorithm, "test");
+
+        EncryptionAlgorithm aesEncryptionAlgorithm = new AESEncryptionAlgorithm();
+        chatClient.send(aesEncryptionAlgorithm, "test");
     }
 }
