@@ -13,6 +13,9 @@ import com.company.strategy.AESEncryptionAlgorithm;
 import com.company.strategy.ChatClient;
 import com.company.strategy.DESEncryptionAlgorithm;
 import com.company.strategy.EncryptionAlgorithm;
+import com.company.template.EditWindow;
+import com.company.template.UpdateWindow;
+import com.company.template.Window;
 
 public class Main {
 
@@ -62,5 +65,12 @@ public class Main {
 
         EncryptionAlgorithm aesEncryptionAlgorithm = new AESEncryptionAlgorithm();
         chatClient.send(aesEncryptionAlgorithm, "test");
+
+        // Template design pattern
+        Window window = new UpdateWindow();
+        window.executeWindow();
+
+        window = new EditWindow();
+        window.executeWindow();
     }
 }
